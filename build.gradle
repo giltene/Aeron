@@ -189,7 +189,7 @@ subprojects {
             jvmArgs('--add-opens', 'java.base/java.util.zip=ALL-UNNAMED')
         }
         
-        if (!JavaVersion.current().isCompatibleWith(JavaVerson.valueof('16'))) {
+        if (!JavaVersion.current().isCompatibleWith(JavaVersion.valueof('16'))) {
             jvmArgs('-XX:+UseParallelOldGC')
         }
 
