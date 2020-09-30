@@ -188,6 +188,10 @@ subprojects {
             jvmArgs('--add-opens', 'java.base/sun.nio.ch=ALL-UNNAMED')
             jvmArgs('--add-opens', 'java.base/java.util.zip=ALL-UNNAMED')
         }
+        
+        if (!JavaVersion.current().isJava16Compatible()) {
+            jvmArgs('-XX:+UseParallelOldGC')
+        }
 
         useJUnitPlatform {
             excludeTags 'slow'
