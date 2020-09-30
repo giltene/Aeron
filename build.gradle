@@ -171,12 +171,16 @@ subprojects {
     }
 
     tasks.withType(JavaCompile) {
+        if (JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_16)) {
+            options.compilerArgs.addAll(['-target=15']);
+        }
         if (JavaVersion.current().isJava9Compatible()) {
             options.compilerArgs.addAll(['--add-exports', 'java.base/java.lang.reflect=ALL-UNNAMED'])
             options.compilerArgs.addAll(['--add-exports', 'java.base/java.net=ALL-UNNAMED'])
             options.compilerArgs.addAll(['--add-exports', 'java.base/sun.nio.ch=ALL-UNNAMED'])
             options.compilerArgs.addAll(['--add-exports', 'jdk.unsupported/sun.misc=ALL-UNNAMED'])
         }
+
         options.encoding = 'UTF-8'
         options.deprecation = true
     }
