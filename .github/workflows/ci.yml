@@ -21,7 +21,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        java: [ 8.0.252, 8, 11.0.7, 11, 13.0.4, 13, 15.0.0, 15, 16-ea ]
+        # java: [ 8.0.252, 8, 11.0.7, 11, 13.0.4, 13, 15.0.0, 15, 16-ea ]
+        java: [ 11, 16-ea ]
         os: [ 'ubuntu-latest', 'windows-latest' ]
     steps:
       - name: Checkout code
@@ -64,7 +65,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [ '6', '7', '8', '9', '10' ]
+        # version: [ '6', '7', '8', '9', '10' ]
+        version: [ '10' ]
     env:
       CC: gcc-${{ matrix.version }}
       CXX: g++-${{ matrix.version }}
