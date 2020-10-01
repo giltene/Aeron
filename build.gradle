@@ -139,6 +139,10 @@ allprojects {
 
         }
     }
+    
+    compileJava {
+        options.release = 8
+    }
 }
 
 subprojects {
