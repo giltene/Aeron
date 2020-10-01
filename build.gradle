@@ -172,7 +172,7 @@ subprojects {
 
     tasks.withType(JavaCompile) {
         if (JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_16)) {
-            options.compilerArgs.addAll(['-target=15']);
+            options.release = 15;
         }
         if (JavaVersion.current().isJava9Compatible()) {
             options.compilerArgs.addAll(['--add-exports', 'java.base/java.lang.reflect=ALL-UNNAMED'])
